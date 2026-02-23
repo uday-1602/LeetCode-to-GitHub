@@ -1,0 +1,26 @@
+{
+    "manifest_version" : 3,
+    "name" : "LeetCode to GitHub Auto-Sync",
+    "version" : "1.0",
+    "description" : "Automatically pushes successfully accepted LeetCode submissions to a GitHub repository",
+    "permissions":[
+        "storage",
+        "webRequest"
+    ],
+    "host_permissions":[
+        "https://leetcode.com/*",
+        "https://api.github.com/*"
+    ],
+    "background":{
+        "service_worker" : "background.js"
+    },
+    "content_scripts" : [
+        {
+            "matches" : ["https://leetcode.com/problems/*"],
+            "js" : ["content.js"]
+        }
+    ],
+    "action" : {
+        "default_popup" : "popup.html"
+    }
+}
